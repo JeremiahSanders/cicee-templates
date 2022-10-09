@@ -1,0 +1,9 @@
+{
+  "name": "cicee-solution-templates",
+  "description": "",
+  "title": "cicee-solution-templates",
+  "version": "0.0.0",
+  "ciEnvironment": {
+    "variables": []
+  }
+}
