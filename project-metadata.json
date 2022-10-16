@@ -4,6 +4,21 @@
   "title": "CICEE Templates",
   "version": "0.0.0",
   "ciEnvironment": {
-    "variables": []
+    "variables": [
+      {
+        "name": "NUGET_API_KEY",
+        "description": "NuGet API key",
+        "required": true,
+        "secret": true,
+        "defaultValue": null
+      },
+      {
+        "name": "NUGET_SOURCE",
+        "description": "NuGet Source (e.g., https://api.nuget.org/v3/index.json)",
+        "required": true,
+        "secret": false,
+        "defaultValue": "https://api.nuget.org/v3/index.json"
+      }
+    ]
   }
 }
