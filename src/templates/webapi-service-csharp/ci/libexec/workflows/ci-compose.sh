@@ -19,7 +19,13 @@ set -o pipefail # Fail pipelines if any command errors, not just the last one.
 function ci-compose() {
   printf "Composing build artifacts...\n\n"
 
-  package_templates
+  # Build an executable
+  dotnet publish "${PROJECT_ROOT}/src/webapi" \
+    --configuration Release \
+    --output "${BUILD_UNPACKAGED_DIST}" \
+    -p:Version="${PROJECT_VERSION_DIST}"
+
+  printf "\nWebApi executable published to %s\n\n" "${BUILD_UNPACKAGED_DIST}"
 
   printf "Composition complete.\n"
 }

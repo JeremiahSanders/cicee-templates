@@ -477,6 +477,11 @@ $RECYCLE.BIN/
 *.lnk
 
 # CI scripts
-!ci/bin
+!**/ci/bin
 # Local environment initialization
 ci/env.local.sh
+# Project bin
+!/bin
+# Build output
+/build
+

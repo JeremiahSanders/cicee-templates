@@ -15,23 +15,54 @@ set -o errexit  # Fail or exit immediately if there is an error.
 set -o nounset  # Fail if an unset variable is used.
 set -o pipefail # Fail pipelines if any command errors, not just the last one.
 
+# Local "action"/"build step" function to generate example/test output.
+function __generateTestOutput() {
+  local GENERATED_OUTPUT="${BUILD_ROOT}/generated"
+
+  if [[ ! -d "${BUILD_ROOT}" ]]; then
+    mkdir "${BUILD_ROOT}"
+  fi
+
+  if [[ ! -d "${GENERATED_OUTPUT}" ]]; then
+    mkdir "${GENERATED_OUTPUT}"
+  fi
+  function __createGlobalJson() {
+    dotnet new globaljson --sdk-version "6.0.100" --roll-forward "latestMinor"
+  }
+
+  function __init_webapi_service_fsharp() {
+    local WEBAPI_SERVICE_FSHARP="${GENERATED_OUTPUT}/webapi-service-fsharp"
+    mkdir "${WEBAPI_SERVICE_FSHARP}" &&
+      cd "${WEBAPI_SERVICE_FSHARP}" &&
+      __createGlobalJson &&
+      dotnet new cicee-webapi-service --language F# --name "MyAwesomeWebService"
+  }
+  function __init_webapi_service_csharp() {
+    local WEBAPI_SERVICE_CSHARP="${GENERATED_OUTPUT}/webapi-service-csharp"
+    mkdir "${WEBAPI_SERVICE_CSHARP}" &&
+      cd "${WEBAPI_SERVICE_CSHARP}" &&
+      __createGlobalJson &&
+      dotnet new cicee-webapi-service --language C# --name "MyAwesomeWebService"
+  }
+
+  __init_webapi_service_csharp &&
+    __init_webapi_service_fsharp
+}
+
+# Local "action"/"build step" function to build project outputs.
+function __generateExampleProjects() {
+  dotnet build "${PROJECT_ROOT}/src" --no-incremental &&
+    install_templates &&
+    __generateTestOutput
+}
+
 function ci-validate() {
   printf "Beginning validation...\n\n"
 
-  # How to use:
-  #   Uncomment the example validation workflow line(s) below which apply to the project, or execute validation commands.
+  uninstall_templates && ci-clean || ci-clean
 
-  printf "...\nTODO: Implement ci-validate in %s ...\n\n" "${BASH_SOURCE[0]}"
-
-  # .NET _______
-  #  ci-dotnet-restore &&
-  #    ci-dotnet-build &&
-  #    ci-dotnet-test
-
-  # Node.js ____
-  #  npm ci &&
-  #    npm run build &&
-  #    npm run test
+  __generateExampleProjects &&
+    uninstall_templates
 
   printf "Validation complete!\n\n"
 }

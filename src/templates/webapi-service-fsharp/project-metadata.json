@@ -1,0 +1,17 @@
+{
+  "name": "api-service",
+  "description": "",
+  "title": "ApiService",
+  "version": "0.0.0",
+  "ciEnvironment": {
+    "variables": [
+      {
+        "name": "EXAMPLE_ENV_VARIABLE",
+        "description": "Example environment variable. The `defaultValue` settings affect the environment in `cicee lib exec`. The `secret` settings affect masking environment values from CICEE-generated messages. The `required` settings determine if `cicee env require` and the CI library should error if it has no value.",
+        "required": false,
+        "secret": false,
+        "defaultValue": "Update project-metadata.json"
+      }
+    ]
+  }
+}

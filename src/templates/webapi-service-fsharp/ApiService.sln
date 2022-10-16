@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{08737163-7A63-4071-9307-0191091C4306}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ApiService.Domain", "src\domain\ApiService.Domain.fsproj", "{9AFB7061-6C8D-4C16-B174-3FCDD27302CD}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ApiService.WebApi", "src\webapi\ApiService.WebApi.fsproj", "{9DA3B0BD-1681-47EF-A495-03A5EF25BF9D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9165E1B0-60F1-4283-B959-6107F554BC9B}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ApiService.Tests.Unit", "tests\unit\ApiService.Tests.Unit.fsproj", "{76F5DDD9-77E9-446F-A5D1-87A16E563979}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ApiService.Tests.Integration", "tests\integration\ApiService.Tests.Integration.fsproj", "{38BAF49A-748C-492C-8E68-DC56BC3D6555}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9AFB7061-6C8D-4C16-B174-3FCDD27302CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AFB7061-6C8D-4C16-B174-3FCDD27302CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AFB7061-6C8D-4C16-B174-3FCDD27302CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AFB7061-6C8D-4C16-B174-3FCDD27302CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DA3B0BD-1681-47EF-A495-03A5EF25BF9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DA3B0BD-1681-47EF-A495-03A5EF25BF9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DA3B0BD-1681-47EF-A495-03A5EF25BF9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DA3B0BD-1681-47EF-A495-03A5EF25BF9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76F5DDD9-77E9-446F-A5D1-87A16E563979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76F5DDD9-77E9-446F-A5D1-87A16E563979}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76F5DDD9-77E9-446F-A5D1-87A16E563979}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76F5DDD9-77E9-446F-A5D1-87A16E563979}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38BAF49A-748C-492C-8E68-DC56BC3D6555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38BAF49A-748C-492C-8E68-DC56BC3D6555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38BAF49A-748C-492C-8E68-DC56BC3D6555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38BAF49A-748C-492C-8E68-DC56BC3D6555}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9AFB7061-6C8D-4C16-B174-3FCDD27302CD} = {08737163-7A63-4071-9307-0191091C4306}
+		{9DA3B0BD-1681-47EF-A495-03A5EF25BF9D} = {08737163-7A63-4071-9307-0191091C4306}
+		{76F5DDD9-77E9-446F-A5D1-87A16E563979} = {9165E1B0-60F1-4283-B959-6107F554BC9B}
+		{38BAF49A-748C-492C-8E68-DC56BC3D6555} = {9165E1B0-60F1-4283-B959-6107F554BC9B}
+	EndGlobalSection
+EndGlobal
