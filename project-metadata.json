@@ -1,7 +1,7 @@
 {
-  "name": "cicee-solution-templates",
-  "description": "",
-  "title": "cicee-solution-templates",
+  "name": "cicee-templates",
+  "description": ".NET solution templates which are pre-configured with continuous integration (CI) scripts using the CICEE CI library.",
+  "title": "CICEE Templates",
   "version": "0.0.0",
   "ciEnvironment": {
     "variables": []
