@@ -19,19 +19,7 @@ set -o pipefail # Fail pipelines if any command errors, not just the last one.
 function ci-publish() {
   printf "Publishing composed artifacts...\n\n"
 
-  # How to use:
-  #   Uncomment the example publishing workflow line(s) below which apply to the project, or execute publishing commands.
-
-  printf "...\nTODO: Implement ci-publish  in %s ...\n\n" "${BASH_SOURCE[0]}"
-
-  # Push Docker image to AWS ECR ______
-  # ci-aws-ecr-docker-login && ci-docker-push
-
-  # Push .NET NuGet package ___________
-  # ci-dotnet-nuget-push
-
-  # Deploy AWS CDK Cloud Assembly _____
-  # ci-aws-cdk-deploy
+  ci-dotnet-nuget-push
 
   printf "Publishing complete.\n\n"
 }
