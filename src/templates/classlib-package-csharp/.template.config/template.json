@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "jds",
+  "classifications": ["Common", "Library"],
+  "identity": "Cicee.ClassLibPackage.CSharp",
+  "groupIdentity": "Cicee.ClassLibPackage",
+  "name": "classlib-based Package Solution",
+  "shortName": "cicee-classlib-package",
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  },
+  "primaryOutputs": [{ "path": "ClassLibPackage.sln" }],
+  "guids": [
+    "9320CBDE-D847-4106-9B67-206D04D323A2",
+    "5CAE7EC0-1C9B-4A8E-A500-31A0D93BEDB9",
+    "C63FE8D0-869E-4BCB-A787-D77803B51C60",
+    "6B5BAE88-97EF-49EB-8743-E7A189168367"
+  ],
+  "forms": {
+    "kebab": {
+      "identifier": "kebabCase"
+    },
+    "namespace": {
+      "identifier": "safe_namespace"
+    }
+  },
+  "symbols": {
+    "name": {
+      "type": "parameter",
+      "datatype": "text",
+      "isRequired": true,
+      "displayName": "Library name",
+      "description": "Library name (e.g., 'InternalLogicEngine', 'SharedAnalyzers')"
+    },
+    "nameKebab": {
+      "type": "derived",
+      "valueSource": "name",
+      "valueTransform": "kebab",
+      "replaces": "classlib-package",
+      "fileRename": "classlib-package"
+    },
+    "projectNamespace": {
+      "type": "derived",
+      "valueSource": "name",
+      "replaces": "ClassLibPackage",
+      "fileRename": "ClassLibPackage",
+      "valueTransform": "namespace"
+    }
+  },
+  "postActions": [
+    {
+      "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
+      "args": {
+        "executable": "dotnet",
+        "args": "tool restore",
+        "redirectStandardOutput": "false",
+        "redirectStandardError": "false"
+      },
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet tool restore'"
+        }
+      ],
+      "continueOnError": false
+    },
+    {
+      "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
+      "args": {
+        "executable": "dotnet",
+        "args": "tool update --local cicee",
+        "redirectStandardOutput": "false",
+        "redirectStandardError": "false"
+      },
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet tool update --local cicee' to use the latest CICEE tool."
+        }
+      ],
+      "continueOnError": true
+    },
+    {
+      "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
+      "args": {
+        "executable": "dotnet",
+        "args": "cicee init repository --image \"gnosian/ci-env-dotnet:latest\"",
+        "redirectStandardOutput": "false",
+        "redirectStandardError": "false"
+      },
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet cicee init repository' to create containerized CI environment files."
+        }
+      ],
+      "continueOnError": false
+    },
+    {
+      "condition": "(OS != \"Windows_NT\")",
+      "description": "Make /ci/bin scripts executable",
+      "manualInstructions": [
+        {
+          "text": "Run 'chmod +x \"ci/bin/*.sh\", \"ci/libexec/workflows/*.sh\"'"
+        }
+      ],
+      "actionId": "cb9a6cf3-4f5c-4860-b9d2-03a574959774",
+      "args": {
+        "+x": ["ci/bin/*.sh", "ci/libexec/workflows/*.sh"]
+      },
+      "continueOnError": true
+    }
+  ]
+}
