@@ -22,7 +22,9 @@ function ci-compose() {
       --configuration Release \
       --output "${BUILD_UNPACKAGED_DIST}" \
       -p:Version="${PROJECT_VERSION_DIST}" &&
-    printf "\nWebApi executable published to %s\n\n" "${BUILD_UNPACKAGED_DIST}" &&
+    printf "\nWebApi executable published to: %s\n\n" "${BUILD_UNPACKAGED_DIST}" &&
+    ci-docker-build &&
+    printf "\nDocker image tagged as: %s\n\n" "${DOCKER_IMAGE}" &&
     printf "Composition complete.\n"
 }
 
