@@ -10,6 +10,9 @@
     "language": "C#",
     "type": "solution"
   },
+  "generatorVersions": "[1.0.0.0-*)",
+  "precedence": 1,
+  "sourceName": "ApiService",
   "primaryOutputs": [{ "path": "ApiService.sln" }],
   "guids": [
     "1DE9F06E-1D7F-41F9-9213-509A149B5C96",
@@ -28,13 +31,6 @@
     }
   },
   "symbols": {
-    "name": {
-      "type": "parameter",
-      "datatype": "text",
-      "isRequired": true,
-      "displayName": "Solution/application name",
-      "description": "Solution/application name (e.g., 'OrderProcessor', 'AuthorizationService')"
-    },
     "nameKebab": {
       "type": "derived",
       "valueSource": "name",

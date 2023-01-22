@@ -10,6 +10,9 @@
     "language": "F#",
     "type": "solution"
   },
+  "generatorVersions": "[1.0.0.0-*)",
+  "precedence": 0,
+  "sourceName": "ApiService",
   "primaryOutputs": [{ "path": "ApiService.sln" }],
   "guids": [
     "08737163-7A63-4071-9307-0191091C4306",
@@ -28,13 +31,6 @@
     }
   },
   "symbols": {
-    "name": {
-      "type": "parameter",
-      "datatype": "text",
-      "isRequired": true,
-      "displayName": "Solution/application name",
-      "description": "Solution/application name (e.g., 'OrderProcessor', 'AuthorizationService')"
-    },
     "nameKebab": {
       "type": "derived",
       "valueSource": "name",
