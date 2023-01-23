@@ -22,13 +22,15 @@ function ci-compose() {
     dotnet publish "${PROJECT_ROOT}/src/library" \
       --configuration Release \
       --output "${BUILD_UNPACKAGED_DIST}" \
-      -p:Version="${PROJECT_VERSION_DIST}" &&
+      -p:Version="${PROJECT_VERSION_DIST}" \
+      -p:GenerateDocumentationFile=true &&
     printf "\nCompiled assembly published to %s\n\n" "${BUILD_UNPACKAGED_DIST}" &&
     dotnet pack "${PROJECT_ROOT}/src/library" \
       --configuration Release \
       --output "${BUILD_PACKAGED_DIST}/nuget/" \
       -p:PackageVersion="${PROJECT_VERSION_DIST}" \
-      -p:Version="${PROJECT_VERSION_DIST}" &&
+      -p:Version="${PROJECT_VERSION_DIST}" \
+      -p:GenerateDocumentationFile=true &&
     printf "\nNuGet package output to %s\n\n" "${BUILD_PACKAGED_DIST}/nuget/" &&
     printf "Composition complete.\n"
 }
