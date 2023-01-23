@@ -35,14 +35,14 @@ function __generateTestOutput() {
     mkdir "${CLASSLIB_PACKAGE_CSHARP}" &&
       cd "${CLASSLIB_PACKAGE_CSHARP}" &&
       __createGlobalJson &&
-      dotnet new cicee-classlib-package --language C# --name "MyCoolLibrary"
+      dotnet new cicee-classlib-package --language C# --name "MyCoolLibrary" --allow-scripts "Yes"
   }
   function __init_classlib_package_fsharp() {
     local CLASSLIB_PACKAGE_FSHARP="${GENERATED_OUTPUT}/classlib-package-fsharp"
     mkdir "${CLASSLIB_PACKAGE_FSHARP}" &&
       cd "${CLASSLIB_PACKAGE_FSHARP}" &&
       __createGlobalJson &&
-      dotnet new cicee-classlib-package --language F# --name "MyCoolLibrary"
+      dotnet new cicee-classlib-package --language F# --name "MyCoolLibrary" --allow-scripts "Yes"
   }
 
   function __init_webapi_service_csharp() {
@@ -50,14 +50,14 @@ function __generateTestOutput() {
     mkdir "${WEBAPI_SERVICE_CSHARP}" &&
       cd "${WEBAPI_SERVICE_CSHARP}" &&
       __createGlobalJson &&
-      dotnet new cicee-webapi-service --language C# --name "MyAwesomeWebService"
+      dotnet new cicee-webapi-service --language C# --name "MyAwesomeWebService" --allow-scripts "Yes"
   }
   function __init_webapi_service_fsharp() {
     local WEBAPI_SERVICE_FSHARP="${GENERATED_OUTPUT}/webapi-service-fsharp"
     mkdir "${WEBAPI_SERVICE_FSHARP}" &&
       cd "${WEBAPI_SERVICE_FSHARP}" &&
       __createGlobalJson &&
-      dotnet new cicee-webapi-service --language F# --name "MyAwesomeWebService"
+      dotnet new cicee-webapi-service --language F# --name "MyAwesomeWebService" --allow-scripts "Yes"
   }
 
   __init_classlib_package_csharp &&

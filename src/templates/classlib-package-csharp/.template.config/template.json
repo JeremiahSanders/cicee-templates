@@ -10,6 +10,9 @@
     "language": "C#",
     "type": "solution"
   },
+  "generatorVersions": "[1.0.0.0-*)",
+  "precedence": 1,
+  "sourceName": "ClassLibPackage",
   "primaryOutputs": [{ "path": "ClassLibPackage.sln" }],
   "guids": [
     "9320CBDE-D847-4106-9B67-206D04D323A2",
@@ -26,13 +29,6 @@
     }
   },
   "symbols": {
-    "name": {
-      "type": "parameter",
-      "datatype": "text",
-      "isRequired": true,
-      "displayName": "Library name",
-      "description": "Library name (e.g., 'InternalLogicEngine', 'SharedAnalyzers')"
-    },
     "nameKebab": {
       "type": "derived",
       "valueSource": "name",

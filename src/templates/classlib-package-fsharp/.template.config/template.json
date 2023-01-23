@@ -10,6 +10,9 @@
     "language": "F#",
     "type": "solution"
   },
+  "generatorVersions": "[1.0.0.0-*)",
+  "precedence": 0,
+  "sourceName": "ClassLibPackage",
   "primaryOutputs": [{ "path": "ClassLibPackage.sln" }],
   "guids": [
     "C1E125DA-6403-42F2-8AD3-2F6FEDD15A71",
@@ -26,13 +29,6 @@
     }
   },
   "symbols": {
-    "name": {
-      "type": "parameter",
-      "datatype": "text",
-      "isRequired": true,
-      "displayName": "Library name",
-      "description": "Library name (e.g., 'InternalLogicEngine', 'SharedAnalyzers')"
-    },
     "nameKebab": {
       "type": "derived",
       "valueSource": "name",
