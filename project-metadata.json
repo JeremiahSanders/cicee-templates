@@ -1,0 +1,24 @@
+{
+  "name": "cicee-templates",
+  "description": ".NET solution templates which are pre-configured with continuous integration (CI) scripts using the CICEE CI library.",
+  "title": "CICEE Templates",
+  "version": "0.1.0",
+  "ciEnvironment": {
+    "variables": [
+      {
+        "name": "NUGET_API_KEY",
+        "description": "NuGet API key",
+        "required": true,
+        "secret": true,
+        "defaultValue": null
+      },
+      {
+        "name": "NUGET_SOURCE",
+        "description": "NuGet Source (e.g., https://api.nuget.org/v3/index.json)",
+        "required": true,
+        "secret": false,
+        "defaultValue": "https://api.nuget.org/v3/index.json"
+      }
+    ]
+  }
+}

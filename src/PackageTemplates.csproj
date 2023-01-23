@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- See: https://learn.microsoft.com/en-us/dotnet/core/tutorials/cli-templates-create-template-package -->
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <PackageId>Cicee.Templates</PackageId>
+    <Title>CICEE Solution Templates</Title>
+    <Copyright>Copyright (c) 2022 Jeremiah Sanders</Copyright>
+    <Authors>jds</Authors>
+    <Description>Solution templates pre-configured with continuous integration (CI) scripts using the CICEE CI library.</Description>
+    <PackageTags>dotnet-new;templates;cicee</PackageTags>
+
+    <TargetFramework>netstandard2.0</TargetFramework>
+
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+    <NoDefaultExcludes>true</NoDefaultExcludes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
+
+</Project>

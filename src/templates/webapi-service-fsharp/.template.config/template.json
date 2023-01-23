@@ -1,0 +1,144 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "jds",
+  "classifications": ["Web", "WebAPI"],
+  "identity": "Cicee.WebApiService.FSharp",
+  "groupIdentity": "Cicee.WebApiService",
+  "name": "webapi-based Service Solution",
+  "shortName": "cicee-webapi-service",
+  "tags": {
+    "language": "F#",
+    "type": "solution"
+  },
+  "generatorVersions": "[1.0.0.0-*)",
+  "precedence": 0,
+  "sourceName": "ApiService",
+  "primaryOutputs": [{ "path": "ApiService.sln" }],
+  "guids": [
+    "08737163-7A63-4071-9307-0191091C4306",
+    "9AFB7061-6C8D-4C16-B174-3FCDD27302CD",
+    "9DA3B0BD-1681-47EF-A495-03A5EF25BF9D",
+    "9165E1B0-60F1-4283-B959-6107F554BC9B",
+    "76F5DDD9-77E9-446F-A5D1-87A16E563979",
+    "38BAF49A-748C-492C-8E68-DC56BC3D6555"
+  ],
+  "forms": {
+    "kebab": {
+      "identifier": "kebabCase"
+    },
+    "namespace": {
+      "identifier": "safe_namespace"
+    }
+  },
+  "symbols": {
+    "nameKebab": {
+      "type": "derived",
+      "valueSource": "name",
+      "valueTransform": "kebab",
+      "replaces": "api-service",
+      "fileRename": "api-service"
+    },
+    "projectNamespace": {
+      "type": "derived",
+      "valueSource": "name",
+      "replaces": "ApiService",
+      "fileRename": "ApiService",
+      "valueTransform": "namespace"
+    },
+    "portIisInsecure": {
+      "type": "generated",
+      "generator": "random",
+      "parameters": {
+        "low": 1000,
+        "high": 10000
+      },
+      "replaces": "58456"
+    },
+    "portIisSecure": {
+      "type": "generated",
+      "generator": "random",
+      "parameters": {
+        "low": 1000,
+        "high": 10000
+      },
+      "replaces": "44378"
+    },
+    "portSelfHostedInsecure": {
+      "type": "generated",
+      "generator": "random",
+      "parameters": {
+        "low": 1000,
+        "high": 10000
+      },
+      "replaces": "5279"
+    },
+    "portSelfHostedSecure": {
+      "type": "generated",
+      "generator": "random",
+      "parameters": {
+        "low": 1000,
+        "high": 10000
+      },
+      "replaces": "7012"
+    }
+  },
+  "postActions": [
+    {
+      "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
+      "args": {
+        "executable": "dotnet",
+        "args": "tool restore",
+        "redirectStandardOutput": "false",
+        "redirectStandardError": "false"
+      },
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet tool restore'"
+        }
+      ],
+      "continueOnError": false
+    },
+    {
+      "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
+      "args": {
+        "executable": "dotnet",
+        "args": "tool update --local cicee",
+        "redirectStandardOutput": "false",
+        "redirectStandardError": "false"
+      },
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet tool update --local cicee' to use the latest CICEE tool."
+        }
+      ]
+    },
+    {
+      "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
+      "args": {
+        "executable": "dotnet",
+        "args": "cicee init repository --image \"gnosian/ci-env-dotnet:latest\"",
+        "redirectStandardOutput": "false",
+        "redirectStandardError": "false"
+      },
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet cicee init repository' to create containerized CI environment files."
+        }
+      ]
+    },
+    {
+      "condition": "(OS != \"Windows_NT\")",
+      "description": "Make /ci/bin scripts executable",
+      "manualInstructions": [
+        {
+          "text": "Run 'chmod +x \"ci/bin/*.sh\", \"ci/libexec/workflows/*.sh\"'"
+        }
+      ],
+      "actionId": "cb9a6cf3-4f5c-4860-b9d2-03a574959774",
+      "args": {
+        "+x": ["ci/bin/*.sh", "ci/libexec/workflows/*.sh"]
+      },
+      "continueOnError": true
+    }
+  ]
+}
