@@ -5,7 +5,7 @@
     <PackageType>Template</PackageType>
     <PackageId>Cicee.Templates</PackageId>
     <Title>CICEE Solution Templates</Title>
-    <Copyright>Copyright (c) 2022 Jeremiah Sanders</Copyright>
+    <Copyright>Copyright (c) 2024 Jeremiah Sanders</Copyright>
     <Authors>jds</Authors>
     <Description>Solution templates pre-configured with continuous integration (CI) scripts using the CICEE CI library.</Description>
     <PackageTags>dotnet-new;templates;cicee</PackageTags>
