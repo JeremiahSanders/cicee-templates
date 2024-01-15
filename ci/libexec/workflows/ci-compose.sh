@@ -17,11 +17,9 @@ set -o nounset  # Fail if an unset variable is used.
 set -o pipefail # Fail pipelines if any command errors, not just the last one.
 
 function ci-compose() {
-  printf "Composing build artifacts...\n\n"
-
-  package_templates
-
-  printf "Composition complete.\n"
+  printf "Composing build artifacts...\n\n" &&
+    package_templates &&
+    printf "Composition complete.\n"
 }
 
 export -f ci-compose
