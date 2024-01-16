@@ -25,7 +25,7 @@ function initialize_solution() {
     USE_INTEGRATION_TESTS=true \
     PROJECT_LANGUAGE="F#" \
     FORCE=true \
-    PROJECT_FRAMEWORK="net6.0" \
+    PROJECT_FRAMEWORK="net8.0" \
     "${NET_INIT_COMMAND}" &&
     dotnet add "${SOLUTION_TARGET}/tests/integration" package "Microsoft.AspNetCore.Mvc.Testing"
 }
